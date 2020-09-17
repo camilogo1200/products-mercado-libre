@@ -1,0 +1,156 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+ext {
+    kotlin_version = '1.4.10'
+    kotlinx_coroutines = '1.3.9'
+
+    xCoreVersion = '1.3.1'
+    xAppCompatVersion = '1.2.0'
+    xConstraintLayoutVersion = '2.0.1'
+    roomVersion = '2.2.5'
+    materialVersion = '1.2.1'
+    androidXLifecycleVersion = '2.2.0'
+    androidXArchVersion = "2.1.0"
+    androidXPreferencesversion = '1.1.1'
+    androidXRecyclerviewVersion = '1.1.0'
+    androidXSwipeRefreshVersion = '1.1.0'
+    androidXNavigationFragmentVersion = '2.3.0'
+    androidXNavigationUIVersion = '2.3.0'
+    androidXLegacySupportVersion = '1.0.0'
+    androidXfragmentVersion = '1.2.5'
+    androidXTestVersion = '1.3.0'
+    androidXTestJunitVersion = '1.1.2'
+    daggerVersion = '2.28.3'
+    jUnitVersion = '4.13'
+    jUnitExtensionsVersion = '1.1.2'
+    espressoCoreVersion = '3.3.0'
+    mockitoVersion = '3.5.10'
+    mockitoKotlinVersion = '2.2.0'
+    retrofit2Version = '2.9.0'
+    okHttpVersion = '3.11.0'
+    retrofitConverterScalarsVersion = '2.9.0'
+    okHttpLoggingInterceptorVersion = '4.8.1'
+    stethoVersion = '1.5.1'
+    flipperVersion = '0.54.0'
+    flipperSOLoaderVersion = '0.9.0'
+    flipperLithoAnnotationsVersion = '0.37.1'
+    leakCanaryVersion = '2.4'
+    leakCanaryNoOPVersion = '1.6.3'
+    orhanobutLoggerVersion = '2.2.0'
+    timberLoggerVersion = '4.7.1'
+    lottieVersion = '3.4.2'
+    rxAndroidVersion = '3.0.0'
+    rxJavaVersion = '3.0.4'
+    rxKotlinVersion = '3.0.0'
+    rxBindingVersion = '4.0.0'
+
+    //defaultInfo
+    defaultInfoApplicationId = "com.leal.camilogo1200.androidtest"
+    defaultInfoFlavorDimensions = "default"
+    defaultInfoPackageAndroidJUnitRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    // App Versioning
+    appVersionCode = 1
+    appVersionName = '1.0'
+
+    //Android Versioning
+    androidMinSdkVersion = 23
+    androidTargetSdkVersion = 29
+
+    kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
+    kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines"
+
+    androidXLibsCore = "androidx.core:core-ktx:$xCoreVersion"
+    androidXLibsAppCompat = "androidx.appcompat:appcompat:$xAppCompatVersion"
+    androidXLibsConstraintLayout = "androidx.constraintlayout:constraintlayout:$xConstraintLayoutVersion"
+    androidXLibsRoomRuntime = "androidx.room:room-runtime:$roomVersion"
+    androidXLibsRoomCompiler = "androidx.room:room-compiler:$roomVersion"
+    androidXLibsRoomKtx = "androidx.room:room-ktx:$roomVersion"
+    androidXLibsRecyclerView = "androidx.recyclerview:recyclerview:$androidXRecyclerviewVersion"
+    androidXLibsSwipeRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:$androidXSwipeRefreshVersion"
+    androidXPreferences = "androidx.preference:preference-ktx:$androidXPreferencesversion"
+    androidXNavigationfragment = "androidx.navigation:navigation-fragment-ktx:$androidXNavigationFragmentVersion"
+    androidXNavigationUI = "androidx.navigation:navigation-ui-ktx:$androidXNavigationUIVersion"
+    androidXNavigationDynamicFeatures = "androidx.navigation:navigation-dynamic-features-fragment:$androidXNavigationFragmentVersion"
+    androidXLegacySupport = "androidx.legacy:legacy-support-v4:$androidXLegacySupportVersion"
+    androidXFragment = "androidx.fragment:fragment-ktx:$androidXfragmentVersion"
+
+    //Lyfecycle Components
+    // ViewModel
+    androidXLifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidXLifecycleVersion"
+    // LiveData
+    androidXLifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:$androidXLifecycleVersion"
+    // Lifecycles only (without ViewModel or LiveData)
+    androidXLifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:$androidXLifecycleVersion"
+
+    // Saved state module for ViewModel
+    androidXLifecycleViewModelSavedState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:$androidXLifecycleVersion"
+    // Annotation processor
+    //androidXLifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:$androidXLifecycleVersion"
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    androidXLifecycleCommonJava8 = "androidx.lifecycle:lifecycle-common-java8:$androidXLifecycleVersion"
+    // optional - helpers for implementing LifecycleOwner in a Service
+    androidXLifecycleService = "androidx.lifecycle:lifecycle-service:$androidXLifecycleVersion"
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    androidXLifecycleProcess = "androidx.lifecycle:lifecycle-process:$androidXLifecycleVersion"
+    // optional - ReactiveStreams support for LiveData
+    androidXLifecycleReactiveStreams = "androidx.lifecycle:lifecycle-reactivestreams-ktx:$androidXLifecycleVersion"
+    // optional - Test helpers for LiveData
+    androidXArchCoreTesting = "androidx.arch.core:core-testing:$androidXArchVersion"
+
+    androidXTestRunner = "androidx.test:runner:$androidXTestVersion"
+    androidXTestJunit = "androidx.test.ext:junit:$androidXTestJunitVersion"
+    androidXTestRules = "androidx.test:rules:$androidXTestVersion"
+    materialDesign = "com.google.android.material:material:$materialVersion"
+
+    dagger = "com.google.dagger:dagger:$daggerVersion"
+    daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+    daggerAnnotationProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    testingJUnit = "junit:junit:$jUnitVersion"
+    testingJUnitExtension = "androidx.test.ext:junit:$jUnitExtensionsVersion"
+    testingEspressoCore = "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+    testingMockitoInline = "org.mockito:mockito-inline:$mockitoVersion"
+    testingMockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+
+
+    retrofit2base = "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    retrofit2ConverterGson = "com.squareup.retrofit2:converter-gson:$retrofit2Version"
+    retrofit2ConverterScalars = "com.squareup.retrofit2:converter-scalars:$retrofitConverterScalarsVersion"
+    retrofit2RxJava3Adapter = "com.squareup.retrofit2:adapter-rxjava3:$retrofit2Version"
+    okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpLoggingInterceptorVersion"
+
+    // RX
+    rxAndroid = "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
+    rxJava = "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
+    rxKotlin = "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
+    rxBinding = "com.jakewharton.rxbinding4:rxbinding:$rxBindingVersion"
+    rxBindingSwipeRefreshlayout = "com.jakewharton.rxbinding4:rxbinding-swiperefreshlayout:$rxBindingVersion"
+
+    stethoBase = "com.facebook.stetho:stetho:$stethoVersion"
+    stethoOkHttp = "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
+
+    flipperBase = "com.facebook.flipper:flipper:$flipperVersion"
+    flipperSOloader = "com.facebook.soloader:soloader:$flipperSOLoaderVersion"
+    flipperNetworkPlugin = "com.facebook.flipper:flipper-network-plugin:$flipperVersion"
+    flipperLithoPlugin = "com.facebook.flipper:flipper-litho-plugin:$flipperVersion"
+    flipperLithoAnnotations = "com.facebook.litho:litho-annotations:$flipperLithoAnnotationsVersion"
+    flipperLeakCanaryPlugin = "com.facebook.flipper:flipper-leakcanary-plugin:$flipperVersion"
+    flipperNoop = "com.facebook.flipper:flipper-noop:$flipperVersion"
+
+    leakCanaryBase = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+    leakCanaryNoop = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryNoOPVersion"
+
+    //log_libs
+    orhanobut = "com.orhanobut:logger:$orhanobutLoggerVersion"
+    timber = "com.jakewharton.timber:timber:$timberLoggerVersion"
+
+
+    lottieLib = "com.airbnb.android:lottie:3.4.2"
+}

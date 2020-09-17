@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -25,12 +26,50 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+// KOTLIN
+    implementation kotlinStdLib
+    implementation kotlinCoroutines
+    // SUPPORT
+    implementation androidXLibsCore
+    // COMPONENTS
+    implementation androidXLibsRoomRuntime
+    kapt androidXLibsRoomCompiler
+    // DAGGER
+    implementation "com.google.dagger:dagger:2.29.1"
+    kapt "com.google.dagger:dagger-compiler:2.29.1"
+    // RX
+    implementation rxAndroid
+    implementation "io.reactivex.rxjava3:rxjava:3.0.6"
+    implementation rxKotlin
+    // WEBSERVICES
+    implementation retrofit2ConverterGson
+    implementation retrofit2RxJava3Adapter
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation retrofit2ConverterScalars
 
+    // DEBUG TOOLS
+    implementation timber
+    implementation stethoOkHttp
+    implementation flipperNetworkPlugin
+    debugImplementation flipperBase
+    debugImplementation flipperSOloader
+    debugImplementation flipperNetworkPlugin
+    debugImplementation flipperLithoPlugin
+    debugImplementation flipperLithoAnnotations
+    debugImplementation flipperLeakCanaryPlugin
+    debugImplementation leakCanaryBase
+
+    releaseImplementation leakCanaryNoop
+    releaseImplementation flipperNoop
+
+    // TEST
+    testImplementation testingJUnit
+    testImplementation androidXTestRunner
+    testImplementation testingMockitoInline
+    testImplementation testingMockitoKotlin
+
+    // ANDROID TEST
+    androidTestImplementation androidXTestRunner
+    androidTestImplementation androidXTestJunit
+    androidTestImplementation testingEspressoCore
 }
