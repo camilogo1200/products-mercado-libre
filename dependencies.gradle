@@ -51,7 +51,7 @@ ext {
     rxBindingVersion = '4.0.0'
 
     //defaultInfo
-    defaultInfoApplicationId = "com.leal.camilogo1200.androidtest"
+    defaultInfoApplicationId = "com.mercadolibre.camilogo1200.products"
     defaultInfoFlavorDimensions = "default"
     defaultInfoPackageAndroidJUnitRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -88,6 +88,8 @@ ext {
     androidXLifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:$androidXLifecycleVersion"
     // Lifecycles only (without ViewModel or LiveData)
     androidXLifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:$androidXLifecycleVersion"
+
+    androidXLifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:$androidXLifecycleVersion"
 
     // Saved state module for ViewModel
     androidXLifecycleViewModelSavedState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:$androidXLifecycleVersion"
