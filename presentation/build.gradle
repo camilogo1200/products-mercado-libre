@@ -48,6 +48,7 @@ dependencies {
     implementation androidXLibsAppCompat
     implementation androidXLibsConstraintLayout
     implementation androidXLibsRoomRuntime
+    implementation androidXLifecycleExtensions
     kapt androidXLibsRoomCompiler
     implementation androidXLibsRoomKtx
     implementation androidXLibsRecyclerView
