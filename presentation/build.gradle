@@ -13,7 +13,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -29,6 +29,38 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            dimension "version"
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+            buildConfigField "boolean", "GZIP_ENABLED", "true"
+            buildConfigField "boolean", "NETWORK_EVENTS_LISTENER", "false"
+            buildConfigField "boolean", "STETHO", "true"
+        }
+        qa {
+            dimension "version"
+            applicationIdSuffix ".full"
+            versionNameSuffix "-full"
+            buildConfigField "boolean", "GZIP_ENABLED", "true"
+            buildConfigField "boolean", "NETWORK_EVENTS_LISTENER", "false"
+            buildConfigField "boolean", "STETHO", "true"
+        }
+        prod {
+            dimension "version"
+            minSdkVersion 24
+            // To ensure the target device receives the version of the app with
+            // the highest compatible API level, assign version codes in increasing
+            // value with API level. To learn more about assigning version codes to
+            // support app updates and uploading to Google Play, read Multiple APK Support
+            buildConfigField "boolean", "GZIP_ENABLED", "true"
+            buildConfigField "boolean", "NETWORK_EVENTS_LISTENER", "false"
+            buildConfigField "boolean", "STETHO", "false"
+            versionCode 30000 + android.defaultConfig.versionCode
+            versionNameSuffix "-minApi24"
         }
     }
     buildFeatures {
