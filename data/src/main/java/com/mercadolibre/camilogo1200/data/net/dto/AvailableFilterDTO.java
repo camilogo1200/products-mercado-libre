@@ -24,7 +24,7 @@ public class AvailableFilterDTO implements Serializable {
     private String type;
     @SerializedName("values")
     @Expose
-    private List<Value__DTO> values = new ArrayList<Value__DTO>();
+    private List<Value__DTO> values = new ArrayList<>();
     private static final long serialVersionUID = 7962938143378638268L;
 
     /**

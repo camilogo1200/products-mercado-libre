@@ -15,8 +15,18 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-    }
 
+        buildConfigField "boolean", "GZIP_ENABLED", "true"
+        buildConfigField "boolean", "NETWORK_EVENTS_LISTENER", "false"
+        buildConfigField "boolean", "STETHO", "true"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     buildTypes {
         release {
             minifyEnabled false

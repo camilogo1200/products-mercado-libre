@@ -27,7 +27,7 @@ public class AttributeDTO implements Serializable {
     private ValueStructDTO valueStruct;
     @SerializedName("values")
     @Expose
-    private List<ValueDTO> values = new ArrayList<ValueDTO>();
+    private List<ValueDTO> values = new ArrayList<>();
     @SerializedName("attribute_group_id")
     @Expose
     private String attributeGroupId;

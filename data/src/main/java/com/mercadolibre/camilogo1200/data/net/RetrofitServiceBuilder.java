@@ -2,8 +2,12 @@ package com.mercadolibre.camilogo1200.data.net;
 
 import androidx.annotation.NonNull;
 
+import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor;
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.mercadolibre.camilogo1200.data.BuildConfig;
 import com.mercadolibre.camilogo1200.data.net.helpers.GzipRequestInterceptor;
+import com.mercadolibre.camilogo1200.data.net.helpers.PrintingEventListener;
 import com.mercadolibre.camilogo1200.data.net.interfaces.RetrofitBuilder;
 
 import java.util.ArrayList;
@@ -58,7 +62,7 @@ public final class RetrofitServiceBuilder {
      * @since 1.0
      */
     public static final class Builder implements RetrofitBuilder {
-        HttpLoggingInterceptor loggingInterceptor = null;
+        HttpLoggingInterceptor loggingInterceptor;
         private Retrofit.Builder retrofitBuilder;
         private OkHttpClient.Builder okHttpClient;
         private String baseURL;
@@ -67,7 +71,7 @@ public final class RetrofitServiceBuilder {
         private boolean disableSensibleInformation;
         private boolean enableNetEventListeners;
         private boolean enableGsonConverter;
-        private HttpLoggingInterceptor.Level level = null;
+        private HttpLoggingInterceptor.Level level;
         private List<Converter.Factory> converterFactories;
         private List<Interceptor> lInterceptors;
         private List<Interceptor> lNetworkInterceptors;
@@ -150,7 +154,7 @@ public final class RetrofitServiceBuilder {
         @Override
         public Builder disableSensibleInformationfilter(boolean disable) {
             disableSensibleInformation = disable;
-            return null;
+            return this;
         }
 
         @Override
@@ -279,7 +283,7 @@ public final class RetrofitServiceBuilder {
         @Override
         public Builder enableStethoInterceptor(boolean enable) {
             enableStetho = enable;
-            return null;
+            return this;
         }
 
         /**
@@ -300,21 +304,20 @@ public final class RetrofitServiceBuilder {
         public Builder enableFlipperInterceptor(boolean enable, NetworkFlipperPlugin networkPlugin) {
             enableFlipper = enable;
             networkFlipperPlugin = networkPlugin;
-            return null;
+            return this;
         }
 
         /**
          * Activate the use of the ReactiveExtensions Call Adapter so called the RxJava
-         * {@link retrofit2.adapter.rxjava3.RxJava3CallAdapter} network
+         * {@link RxJava3CallAdapterFactory} network
          * over the network request in {@link Retrofit}
          *
          * <p> By default is disabled</p>
          *
-         * @param enable true enables the RxJava Call Adapter {@link retrofit2.adapter.rxjava3.RxJava3CallAdapter}
+         * @param enable true enables the RxJava Call Adapter {@link RxJava3CallAdapterFactory}
          * @return {@link RetrofitServiceBuilder.Builder}
          * @see Retrofit
          * @see RxJava3CallAdapterFactory
-         * @see retrofit2.adapter.rxjava3.RxJava3CallAdapter
          * @see io.reactivex.rxjava3.plugins.RxJavaPlugins
          * @see io.reactivex.rxjava3.core.Observable
          * @since 1.0
@@ -342,13 +345,14 @@ public final class RetrofitServiceBuilder {
                 throw new IllegalArgumentException("Invalid URL [" + baseURL + "]");
             }
             retrofitBuilder.baseUrl(baseURL);
-            loggingInterceptor.setLevel(level);
+            if (enableLoggingInterceptor) {
+                loggingInterceptor.setLevel(level);
 
-            if (!disableSensibleInformation) {
-                loggingInterceptor.redactHeader("Authorization");
-                loggingInterceptor.redactHeader("Cookie");
+                if (!disableSensibleInformation) {
+                    loggingInterceptor.redactHeader("Authorization");
+                    loggingInterceptor.redactHeader("Cookie");
+                }
             }
-
             addConverters();
             addInterceptors();
             addDebugHelpers();
@@ -374,19 +378,19 @@ public final class RetrofitServiceBuilder {
          * @since 1.0
          */
         private void addDebugHelpers() {
-//            if (BuildConfig.DEBUG) {
-//                if (enableStetho) {
-//                    okHttpClient.addNetworkInterceptor(new StethoInterceptor());
-//                }
-//
-//                if (enableFlipper) {
-//                    okHttpClient.addNetworkInterceptor(new FlipperOkhttpInterceptor(networkFlipperPlugin));
-//                }
-//
-//                if (enableNetEventListeners || BuildConfig.NETWORK_EVENTS_LISTENER) {
-//                    okHttpClient.eventListenerFactory(PrintingEventListener.FACTORY);
-//                }
-//            }
+            if (BuildConfig.DEBUG) {
+                if (enableStetho) {
+                    okHttpClient.addNetworkInterceptor(new StethoInterceptor());
+                }
+
+                if (enableFlipper) {
+                    okHttpClient.addNetworkInterceptor(new FlipperOkhttpInterceptor(networkFlipperPlugin));
+                }
+
+                if (enableNetEventListeners || BuildConfig.NETWORK_EVENTS_LISTENER) {
+                    okHttpClient.eventListenerFactory(PrintingEventListener.FACTORY);
+                }
+            }
         }
 
         /**
