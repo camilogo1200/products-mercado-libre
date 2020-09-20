@@ -24,7 +24,7 @@ public class FilterDTO implements Serializable {
     private String type;
     @SerializedName("values")
     @Expose
-    private List<Value_DTO> values = new ArrayList<Value_DTO>();
+    private List<Value_DTO> values = new ArrayList<>();
 
     /**
      * No args constructor for use in serialization
