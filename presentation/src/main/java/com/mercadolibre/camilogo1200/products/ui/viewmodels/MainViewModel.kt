@@ -1,4 +1,4 @@
-package com.mercadolibre.camilogo1200.products.ui.main
+package com.mercadolibre.camilogo1200.products.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 
