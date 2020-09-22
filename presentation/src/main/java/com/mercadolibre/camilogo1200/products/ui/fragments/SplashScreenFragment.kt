@@ -1,4 +1,4 @@
-package com.mercadolibre.camilogo1200.products.ui.main
+package com.mercadolibre.camilogo1200.products.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.mercadolibre.camilogo1200.products.R
+import com.mercadolibre.camilogo1200.products.ui.viewmodels.MainViewModel
 
 class MainFragment : Fragment() {
 
