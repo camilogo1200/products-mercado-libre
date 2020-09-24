@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/products_navigation"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.mercadolibre.camilogo1200.products.ui.fragments.SplashScreenFragment"
+        android:label="SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_sitesListFragment"
+            app:destination="@id/sitesListFragment"
+            app:enterAnim="@anim/from_right_animation"
+            app:exitAnim="@anim/to_left_animation"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/CategoriesListFragment"
+        android:name="com.mercadolibre.camilogo1200.products.demo.CategoriesListFragment"
+        android:label="fragment_categories_list"
+        tools:layout="@layout/fragment_categories_list">
+        <action
+            android:id="@+id/action_CategoriesListFragment_to_sitesListFragment"
+            app:destination="@id/sitesListFragment" />
+        <action
+            android:id="@+id/action_CategoriesListFragment_to_productsListFragment"
+            app:destination="@id/productsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sitesListFragment"
+        android:name="com.mercadolibre.camilogo1200.products.demo.SitesListFragment"
+        android:label="fragment_sites_list"
+        tools:layout="@layout/fragment_sites_list">
+        <action
+            android:id="@+id/action_sitesListFragment_to_CategoriesListFragment"
+            app:destination="@id/CategoriesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsListFragment"
+        android:name="com.mercadolibre.camilogo1200.products.demo.ProductsListFragment"
+        android:label="fragment_products_list"
+        tools:layout="@layout/fragment_products_list">
+        <action
+            android:id="@+id/action_productsListFragment_to_CategoriesListFragment"
+            app:destination="@id/CategoriesListFragment" />
+        <action
+            android:id="@+id/action_productsListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.mercadolibre.camilogo1200.products.demo.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details">
+        <action
+            android:id="@+id/action_productDetailsFragment_to_productsListFragment"
+            app:destination="@id/productsListFragment" />
+    </fragment>
+</navigation>

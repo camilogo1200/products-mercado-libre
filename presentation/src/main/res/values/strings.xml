@@ -2,5 +2,7 @@
     <string name="app_name">Products</string>
     <string name="app_global_log_tag">==PRODUCTS==</string>
     <string name="shared_preferences_file_name">SP_Products_Mercado_Libre</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
