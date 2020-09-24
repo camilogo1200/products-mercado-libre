@@ -71,6 +71,7 @@ android {
 dependencies {
     // Modules
     implementation project(':domain')
+    implementation project(':utils')
     //Kotlin
     implementation kotlinStdLib
 
