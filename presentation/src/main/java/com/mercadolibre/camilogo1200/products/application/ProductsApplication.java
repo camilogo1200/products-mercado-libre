@@ -16,6 +16,10 @@ import com.facebook.flipper.plugins.network.NetworkFlipperPlugin;
 import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin;
 import com.facebook.soloader.SoLoader;
 import com.facebook.stetho.Stetho;
+import com.mercadolibre.camilogo1200.domain.di.components.DaggerDataComponent;
+import com.mercadolibre.camilogo1200.domain.di.components.DaggerUseCaseComponent;
+import com.mercadolibre.camilogo1200.domain.di.components.DataComponent;
+import com.mercadolibre.camilogo1200.domain.di.components.UseCaseComponent;
 import com.mercadolibre.camilogo1200.products.BuildConfig;
 import com.mercadolibre.camilogo1200.products.R;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -37,6 +41,25 @@ import timber.log.Timber;
  * @since 1.0
  */
 public class ProductsApplication extends BaseApplication {
+
+    /**
+     * Dagger component to provides / inject the Use Cases
+     */
+    private UseCaseComponent interactorsComponent;
+
+    public UseCaseComponent getInteractorsComponent() {
+        return interactorsComponent;
+    }
+
+    /**
+     * data component to provides the repositories
+     */
+    private DataComponent dataComponent;
+
+    public DataComponent getDataComponent() {
+        return dataComponent;
+    }
+
     /**
      * field required for the initialization of the network flipper plugin {@link NetworkFlipperPlugin},
      * it is also used to configure the network interceptor {@link okhttp3.Interceptor}
@@ -54,6 +77,8 @@ public class ProductsApplication extends BaseApplication {
      * */
     public ProductsApplication() {
         application = this;
+        dataComponent = DaggerDataComponent.factory().create(application);
+        interactorsComponent = DaggerUseCaseComponent.factory().create(application);
     }
 
     /**
@@ -91,13 +116,13 @@ public class ProductsApplication extends BaseApplication {
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Context getApplicationContext() {
-        return super.getApplicationContext();
-    }
+//    /**
+//     * {@inheritDoc}
+//     */
+//    @Override
+//    public Context getApplicationContext() {
+//        return super.getApplicationContext();
+//    }
 
     /**
      * Initialize Debug tool configurations in the application

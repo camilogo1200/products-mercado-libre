@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
 
 android {
     compileSdkVersion 29
@@ -71,10 +73,11 @@ android {
 dependencies {
     // Modules
     implementation project(':domain')
+    implementation project(':data')
     implementation project(':utils')
     //Kotlin
     implementation kotlinStdLib
-
+    implementation kotlinCoroutines
     //AndroidX
     implementation androidXLibsCore
     implementation androidXFragment
@@ -93,6 +96,7 @@ dependencies {
     implementation androidXNavigationUI
     implementation androidXNavigationDynamicFeatures
     implementation androidXLegacySupport
+    implementation androidXLifecycleCommonJava8
 
     //Lyfecycle Components
     // ViewModel
@@ -152,6 +156,7 @@ dependencies {
 
     //others
     implementation lottieLib
+    implementation circularImgView
 
     debugImplementation flipperBase
     debugImplementation flipperSOloader

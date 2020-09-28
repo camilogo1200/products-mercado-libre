@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @see <a href="https://developers.mercadolibre.com.co/es_co/categorias-y-publicaciones#close">Mercadolibre Developers Sites Api</a>
  * @since 1.0
  */
-public class SitesDTO implements Serializable {
+public class SiteDTO implements Serializable {
 
     /**
      * @serial default site currency id
@@ -34,6 +34,14 @@ public class SitesDTO implements Serializable {
     @SerializedName("name")
     @Expose
     private String name;
+
+    @SerializedName("country_id")
+    @Expose
+    private String countryId;
+
+    @SerializedName("mercadopago_version")
+    @Expose
+    private Integer mercadoPagoVersion;
 
     public String getDefaultCurrencyId() {
         return defaultCurrencyId;
@@ -57,6 +65,22 @@ public class SitesDTO implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
+    }
+
+    public Integer getMercadoPagoVersion() {
+        return mercadoPagoVersion;
+    }
+
+    public void setMercadoPagoVersion(Integer mercadoPagoVersion) {
+        this.mercadoPagoVersion = mercadoPagoVersion;
     }
 
     @NonNull

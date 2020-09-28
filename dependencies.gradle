@@ -13,7 +13,8 @@ ext {
     xCoreVersion = '1.3.1'
     xAppCompatVersion = '1.2.0'
     xConstraintLayoutVersion = '2.0.1'
-    roomVersion = '2.2.5'
+    roomVersion = '2.3.0-alpha02'
+    roomVersionRx = '2.3.0-alpha02'
     materialVersion = '1.2.1'
     androidXLifecycleVersion = '2.2.0'
     androidXArchVersion = "2.1.0"
@@ -70,6 +71,8 @@ ext {
     androidXLibsAppCompat = "androidx.appcompat:appcompat:$xAppCompatVersion"
     androidXLibsConstraintLayout = "androidx.constraintlayout:constraintlayout:$xConstraintLayoutVersion"
     androidXLibsRoomRuntime = "androidx.room:room-runtime:$roomVersion"
+    androidXLibsRoomRuntimeRxJava3 = "androidx.room:room-rxjava3:$roomVersionRx"
+
     androidXLibsRoomCompiler = "androidx.room:room-compiler:$roomVersion"
     androidXLibsRoomKtx = "androidx.room:room-ktx:$roomVersion"
     androidXLibsRecyclerView = "androidx.recyclerview:recyclerview:$androidXRecyclerviewVersion"
@@ -153,6 +156,7 @@ ext {
     orhanobut = "com.orhanobut:logger:$orhanobutLoggerVersion"
     timber = "com.jakewharton.timber:timber:$timberLoggerVersion"
 
-
+    //other libs
+    circularImgView = 'com.mikhaellopez:circularimageview:4.2.0'
     lottieLib = "com.airbnb.android:lottie:3.4.2"
 }
