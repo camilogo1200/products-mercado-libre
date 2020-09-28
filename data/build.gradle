@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':utils')
 // KOTLIN
     implementation kotlinStdLib
     implementation kotlinCoroutines
@@ -43,18 +44,21 @@ dependencies {
     implementation androidXLibsCore
     // COMPONENTS
     implementation androidXLibsRoomRuntime
+    implementation androidXLifecycleLiveData
+    implementation androidXLibsRoomKtx
     kapt androidXLibsRoomCompiler
     // DAGGER
-    implementation "com.google.dagger:dagger:2.29.1"
-    kapt "com.google.dagger:dagger-compiler:2.29.1"
+    implementation dagger
+    kapt daggerCompiler
     // RX
     implementation rxAndroid
-    implementation "io.reactivex.rxjava3:rxjava:3.0.6"
+    implementation rxJava
     implementation rxKotlin
+    implementation androidXLibsRoomRuntimeRxJava3
     // WEBSERVICES
     implementation retrofit2ConverterGson
     implementation retrofit2RxJava3Adapter
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation okHttpLoggingInterceptor
     implementation retrofit2ConverterScalars
 
     // DEBUG TOOLS

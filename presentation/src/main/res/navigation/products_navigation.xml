@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/CategoriesListFragment"
-        android:name="com.mercadolibre.camilogo1200.products.demo.CategoriesListFragment"
+        android:name="com.mercadolibre.camilogo1200.products.ui.fragments.CategoriesListFragment"
         android:label="fragment_categories_list"
         tools:layout="@layout/fragment_categories_list">
         <action
@@ -31,16 +31,23 @@
     </fragment>
     <fragment
         android:id="@+id/sitesListFragment"
-        android:name="com.mercadolibre.camilogo1200.products.demo.SitesListFragment"
+        android:name="com.mercadolibre.camilogo1200.products.ui.fragments.SitesListFragment"
         android:label="fragment_sites_list"
         tools:layout="@layout/fragment_sites_list">
+
         <action
             android:id="@+id/action_sitesListFragment_to_CategoriesListFragment"
-            app:destination="@id/CategoriesListFragment" />
+            app:destination="@id/CategoriesListFragment"
+            app:enterAnim="@anim/from_right_animation"
+            app:exitAnim="@anim/to_left_animation">
+            <argument
+                android:name="site"
+                app:argType="com.mercadolibre.camilogo1200.data.model.Site" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/productsListFragment"
-        android:name="com.mercadolibre.camilogo1200.products.demo.ProductsListFragment"
+        android:name="com.mercadolibre.camilogo1200.products.ui.fragments.ProductsListFragment"
         android:label="fragment_products_list"
         tools:layout="@layout/fragment_products_list">
         <action
@@ -52,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
-        android:name="com.mercadolibre.camilogo1200.products.demo.ProductDetailsFragment"
+        android:name="com.mercadolibre.camilogo1200.products.ui.fragments.ProductDetailsFragment"
         android:label="fragment_product_details"
         tools:layout="@layout/fragment_product_details">
         <action

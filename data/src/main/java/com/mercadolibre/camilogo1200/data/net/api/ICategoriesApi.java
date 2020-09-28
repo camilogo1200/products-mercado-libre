@@ -1,7 +1,7 @@
 package com.mercadolibre.camilogo1200.data.net.api;
 
 import com.mercadolibre.camilogo1200.data.net.dto.CategoriesDTO;
-import com.mercadolibre.camilogo1200.data.net.dto.SitesDTO;
+import com.mercadolibre.camilogo1200.data.net.dto.SiteDTO;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;
@@ -15,7 +15,7 @@ import retrofit2.http.Path;
  * @see GET
  * @see Observable
  * @see CategoriesDTO
- * @see SitesDTO
+ * @see SiteDTO
  * @since 1.0
  */
 public interface ICategoriesApi {

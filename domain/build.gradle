@@ -34,17 +34,24 @@ android {
 }
 
 dependencies {
+    implementation project(':utils')
     implementation project(':data')
     // KOTLIN
     implementation kotlinStdLib
+    implementation kotlinCoroutines
     //Rx
     implementation rxAndroid
     implementation rxKotlin
     implementation rxBinding
     implementation rxBindingSwipeRefreshlayout
+    implementation androidXLifecycleLiveData
     // CODE GENERATION
-    implementation "com.google.dagger:dagger:2.29.1"
+    implementation dagger
+    //implementation daggerCompiler
+    kapt daggerCompiler
 
+    //DEBUG TOOLS
+    implementation timber
     // TEST
     testImplementation testingJUnit
     testImplementation testingJUnitExtension
