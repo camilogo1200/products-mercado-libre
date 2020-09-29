@@ -28,9 +28,9 @@ class SitesListFragment : BaseFragment() {
         _binding = FragmentSitesListBinding.inflate(inflater, container, false)
             .apply { viewmodel = viewModel }
         setHasOptionsMenu(false)
-        listAdapter = SitesAdapter({ site ->
+        listAdapter = SitesAdapter { site ->
             navigateToCategories(site)
-        })
+        }
         return _binding.root
     }
 
