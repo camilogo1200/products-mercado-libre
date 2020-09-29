@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mercadolibre.camilogo1200.data.model.Site
 import com.mercadolibre.camilogo1200.products.R
+import com.mercadolibre.camilogo1200.products.application.ProductsApplication
 import kotlinx.android.synthetic.main.sites_item_layout.view.*
 
 class SitesAdapter(private val listener: (Site) -> Unit) :
@@ -25,6 +26,9 @@ class SitesAdapter(private val listener: (Site) -> Unit) :
         val site = sitesList[position]
         with(holder) {
             itemView.sites_country_flag_title.text = site.name
+            itemView.site_item_flag_img.setImageDrawable(
+                ProductsApplication.getInstance().getFlagBySiteId(site.id)
+            )
             itemView.setOnClickListener { listener(site) }
         }
     }
