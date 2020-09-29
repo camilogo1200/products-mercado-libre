@@ -38,8 +38,8 @@
         <action
             android:id="@+id/action_sitesListFragment_to_CategoriesListFragment"
             app:destination="@id/CategoriesListFragment"
-            app:enterAnim="@anim/from_right_animation"
-            app:exitAnim="@anim/to_left_animation">
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out">
             <argument
                 android:name="site"
                 app:argType="com.mercadolibre.camilogo1200.data.model.Site" />
