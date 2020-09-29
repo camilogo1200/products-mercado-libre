@@ -53,7 +53,6 @@ class SitesViewModel @Inject constructor(
         _dataLoading.value = true
         viewModelScope.launch {
             _items.value = getSitesInteractor.execute(forceLoad)
-            showSnackbarMessage(R.string.loading_sites_error, true)
             _dataLoading.value = false
         }
     }
