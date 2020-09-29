@@ -249,7 +249,7 @@ public class ProductsApplication extends BaseApplication {
         flagsMap.put("MCR", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_04_costa_rica, null));
         //flagsMap.put("MCU", ResourcesCompat.getDrawable(getResources(), R.drawable., null));
         flagsMap.put("MLC", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_07_chile, null));
-        flagsMap.put("MPA", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_01_colombia, null));
+        flagsMap.put("MPA", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_13_panama, null));
         //flagsMap.put("MLM", ResourcesCompat.getDrawable(getResources(), R.drawable., null));
         flagsMap.put("MRD", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_11_republica_dominicana, null));
         flagsMap.put("MHN", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_15_honduras, null));
