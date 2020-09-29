@@ -2,6 +2,9 @@ package com.mercadolibre.camilogo1200.products.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+
+import androidx.core.content.res.ResourcesCompat;
 
 import com.facebook.flipper.android.AndroidFlipperClient;
 import com.facebook.flipper.android.utils.FlipperUtils;
@@ -28,6 +31,9 @@ import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.HashMap;
 
 import okhttp3.OkHttpClient;
 import timber.log.Timber;
@@ -106,6 +112,7 @@ public class ProductsApplication extends BaseApplication {
     protected void onAppCreated() {
         initializeLoggerConfiguration();
         initializeDebugConfiguration();
+        initializeFlagsMap();
     }
 
     /**
@@ -224,4 +231,36 @@ public class ProductsApplication extends BaseApplication {
         });
     }
 
+    /**
+     * Temporal local flags (There is no datasource for that on Mercado Libre Endpoints)
+     */
+    private HashMap<String, Drawable> flagsMap = new HashMap<>();
+
+    void initializeFlagsMap() {
+        flagsMap.put("MGT", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_08_guatemala, null));
+        flagsMap.put("MLU", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_05_uruguay, null));
+        flagsMap.put("MPY", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_16_paraguay, null));
+        flagsMap.put("MEC", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_10_ecuador, null));
+        //flagsMap.put("MNI", ResourcesCompat.getDrawable(getResources(), R.drawable., null));
+        flagsMap.put("MLB", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_06_brazil, null));
+        flagsMap.put("MBO", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_09_bolivia, null));
+        flagsMap.put("MPE", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_12_peru, null));
+        flagsMap.put("MCO", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_01_colombia, null));
+        flagsMap.put("MCR", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_04_costa_rica, null));
+        //flagsMap.put("MCU", ResourcesCompat.getDrawable(getResources(), R.drawable., null));
+        flagsMap.put("MLC", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_07_chile, null));
+        flagsMap.put("MPA", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_01_colombia, null));
+        //flagsMap.put("MLM", ResourcesCompat.getDrawable(getResources(), R.drawable., null));
+        flagsMap.put("MRD", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_11_republica_dominicana, null));
+        flagsMap.put("MHN", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_15_honduras, null));
+        flagsMap.put("MSV", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_17_salvador, null));
+        flagsMap.put("MLV", ResourcesCompat.getDrawable(getResources(), R.drawable.banderas_03_venezuela, null));
+    }
+
+    @Nullable
+    public Drawable getFlagBySiteId(@Nullable String siteId) {
+        Drawable noFlag = ResourcesCompat.getDrawable(getResources(), R.drawable.no_flag_available, null);
+        Drawable flagDrw = flagsMap.get(siteId);
+        return flagDrw == null ? noFlag : flagDrw;
+    }
 }
